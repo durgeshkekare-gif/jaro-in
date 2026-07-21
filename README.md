@@ -1,5 +1,7 @@
 # jaro.in — Site Scaffold
 
+<!-- deploy-trigger: forcing a fresh push to re-fire Vercel's webhook -->
+
 Static HTML site, same deployment model as your other satellite domains
 (mbahub.co.in etc.) — no build step, just static files + `vercel.json`.
 
