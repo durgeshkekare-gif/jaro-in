@@ -5,17 +5,22 @@
    ========================================================================== */
 
 :root {
-  --navy: #10192B;
-  --navy-2: #182338;
-  --gold: #C89B3C;
-  --gold-dim: #8E7433;
-  --paper: #F6F4EE;
-  --paper-2: #EFEBE0;
-  --ink: #1B2436;
-  --slate: #5C6472;
-  --teal: #2F6F62;
-  --line: #DBD3BF;
-  --line-dark: #2B3550;
+  /* Jaro Education brand: #E01A20 (Alizarin Crimson) is the real brand red
+     pulled from jaroeducation.com's asset colors. Navy/gold below is retired
+     in favour of their actual red-on-white system. */
+  --navy: #1A1A1A;
+  --navy-2: #262626;
+  --gold: #E01A20;      /* now the real Jaro red, kept var name for compat */
+  --gold-dim: #B0141A;
+  --paper: #FFFFFF;
+  --paper-2: #F7F7F7;
+  --ink: #1A1A1A;
+  --slate: #666D78;
+  --teal: #1E8E3E;       /* status green, matches their "Admission Open" tag */
+  --line: #E7E7E7;
+  --line-dark: #3A3A3A;
+  --red: #E01A20;
+  --red-dark: #B0141A;
 
   --serif: "Fraunces", Georgia, serif;
   --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -52,9 +57,9 @@ a { color: inherit; }
 
 /* ---------- Header ---------- */
 .site-header {
-  background: var(--navy);
-  color: var(--paper);
-  border-bottom: 1px solid var(--line-dark);
+  background: #FFFFFF;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -71,17 +76,18 @@ a { color: inherit; }
   font-size: 1.4rem;
   letter-spacing: 0.01em;
   text-decoration: none;
-  color: var(--paper);
+  color: var(--ink);
   display: flex;
   align-items: baseline;
   gap: 8px;
 }
 .logo .mark {
-  color: var(--gold);
+  color: #fff;
+  background: var(--red);
   font-family: var(--mono);
+  font-weight: 500;
   font-size: 0.85rem;
-  border: 1px solid var(--gold-dim);
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 3px;
 }
 nav.primary-nav {
@@ -91,8 +97,8 @@ nav.primary-nav {
 }
 nav.primary-nav a {
   text-decoration: none;
-  color: var(--paper);
-  opacity: 0.82;
+  color: var(--ink);
+  opacity: 0.75;
   transition: opacity 0.15s ease;
   padding: 4px 2px;
   border-bottom: 1px solid transparent;
@@ -100,32 +106,32 @@ nav.primary-nav a {
 nav.primary-nav a:hover,
 nav.primary-nav a:focus-visible {
   opacity: 1;
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--red);
 }
 .btn-enroll {
-  background: var(--gold);
-  color: var(--navy) !important;
+  background: var(--red);
+  color: #fff !important;
   font-weight: 600;
   padding: 9px 18px;
   border-radius: 3px;
   opacity: 1 !important;
   border-bottom: none !important;
 }
-.btn-enroll:hover { background: #d8ac4d; }
+.btn-enroll:hover { background: var(--red-dark); }
 
 /* ---------- Hero ---------- */
 .hero {
-  background: var(--navy);
-  color: var(--paper);
+  background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 65%);
+  color: var(--ink);
   padding: 84px 0 96px;
-  border-bottom: 4px solid var(--gold);
+  border-bottom: 4px solid var(--red);
 }
 .hero .eyebrow {
   font-family: var(--mono);
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--red);
   margin: 0 0 18px;
 }
 .hero h1 {
@@ -135,36 +141,38 @@ nav.primary-nav a:focus-visible {
   line-height: 1.12;
   max-width: 16ch;
   margin: 0 0 22px;
+  color: var(--ink);
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--red);
 }
 .hero p.lede {
   max-width: 56ch;
   font-size: 1.15rem;
-  color: #C9CFDC;
+  color: var(--slate);
   margin: 0 0 34px;
 }
 .hero .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--red);
+  color: #fff;
   font-weight: 600;
   text-decoration: none;
   padding: 13px 26px;
   border-radius: 3px;
   font-size: 0.98rem;
 }
+.btn-primary:hover { background: var(--red-dark); }
 .btn-secondary {
-  border: 1px solid #3A4763;
-  color: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
   text-decoration: none;
   padding: 13px 26px;
   border-radius: 3px;
   font-size: 0.98rem;
 }
-.btn-secondary:hover { border-color: var(--gold); }
+.btn-secondary:hover { border-color: var(--red); color: var(--red); }
 
 /* ---------- Section headings ---------- */
 .section { padding: 76px 0; }
@@ -256,6 +264,117 @@ nav.primary-nav a:focus-visible {
   margin-top: auto;
   padding-top: 10px;
   border-top: 1px dashed var(--line);
+}
+
+/* ---------- Course cards (real program listings) ---------- */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+.course-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.course-card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.course-card .course-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: #E9F7ED;
+  padding: 3px 9px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.status-badge::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.course-card .institute {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.course-card h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.08rem;
+  margin: 0;
+  line-height: 1.3;
+}
+.course-card .course-meta {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--slate);
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-block { margin-bottom: 56px; }
+.category-block h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 4px;
+}
+.category-block .cat-count {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin: 0 0 20px;
+}
+
+.free-course-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.free-course-card:hover { border-color: var(--red); }
+.free-course-card .fc-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.free-course-card h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0;
+}
+.free-course-card .fc-hours {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--red);
 }
 
 /* ---------- Blog list ---------- */
