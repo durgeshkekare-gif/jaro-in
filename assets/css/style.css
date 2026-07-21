@@ -5,22 +5,23 @@
    ========================================================================== */
 
 :root {
-  /* Jaro Education brand: #E01A20 (Alizarin Crimson) is the real brand red
-     pulled from jaroeducation.com's asset colors. Navy/gold below is retired
-     in favour of their actual red-on-white system. */
-  --navy: #1A1A1A;
-  --navy-2: #262626;
-  --gold: #E01A20;      /* now the real Jaro red, kept var name for compat */
-  --gold-dim: #B0141A;
+  /* Jaro Education brand: navy blue, yellow/gold, and white —
+     updated per direct confirmation of jaroeducation.com's actual palette. */
+  --navy: #0B2447;
+  --navy-2: #123B78;
+  --gold: #1B4F9C;      /* primary brand blue (var name kept for compatibility) */
+  --gold-dim: #123B78;
   --paper: #FFFFFF;
-  --paper-2: #F7F7F7;
-  --ink: #1A1A1A;
-  --slate: #666D78;
-  --teal: #1E8E3E;       /* status green, matches their "Admission Open" tag */
-  --line: #E7E7E7;
-  --line-dark: #3A3A3A;
-  --red: #E01A20;
-  --red-dark: #B0141A;
+  --paper-2: #F5F8FC;
+  --ink: #16213E;
+  --slate: #5C6672;
+  --teal: #1B4F9C;       /* secondary text accent — same blue family for readability */
+  --line: #E2E8F5;
+  --line-dark: #1B3A66;
+  --red: #1B4F9C;
+  --red-dark: #123B78;
+  --yellow: #FFC72C;
+  --yellow-dark: #E0A800;
 
   --serif: "Fraunces", Georgia, serif;
   --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -121,10 +122,10 @@ nav.primary-nav a:focus-visible {
 
 /* ---------- Hero ---------- */
 .hero {
-  background: linear-gradient(180deg, #FFF5F5 0%, #FFFFFF 65%);
+  background: linear-gradient(180deg, #FFF9E8 0%, #FFFFFF 65%);
   color: var(--ink);
   padding: 84px 0 96px;
-  border-bottom: 4px solid var(--red);
+  border-bottom: 4px solid var(--yellow);
 }
 .hero .eyebrow {
   font-family: var(--mono);
@@ -234,7 +235,7 @@ nav.primary-nav a:focus-visible {
   top: -11px;
   left: 22px;
   background: var(--navy);
-  color: var(--gold);
+  color: var(--yellow);
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -296,8 +297,8 @@ nav.primary-nav a:focus-visible {
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--teal);
-  background: #E9F7ED;
+  color: #8A6D00;
+  background: #FFF6DF;
   padding: 3px 9px;
   border-radius: 20px;
   width: fit-content;
@@ -306,7 +307,7 @@ nav.primary-nav a:focus-visible {
   content: "";
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--yellow);
 }
 .course-card .institute {
   font-family: var(--mono);
@@ -485,7 +486,7 @@ footer.site-footer h4 {
 footer.site-footer ul { list-style: none; margin: 0; padding: 0; }
 footer.site-footer li { margin-bottom: 9px; }
 footer.site-footer a { text-decoration: none; color: #9DA6BB; }
-footer.site-footer a:hover { color: var(--gold); }
+footer.site-footer a:hover { color: var(--yellow); }
 footer.site-footer .fine {
   border-top: 1px solid var(--line-dark);
   padding-top: 20px;
@@ -520,7 +521,7 @@ footer.site-footer .fine {
   padding: 3px 10px;
   border-radius: 3px;
 }
-.division-block.dlp .division-head .div-tag { background: var(--teal); }
+.division-block.dlp .division-head .div-tag { background: var(--yellow); color: var(--navy); }
 .division-sub { color: var(--slate); margin: 0 0 28px; max-width: 62ch; }
 
 .institution-grid {
@@ -568,13 +569,13 @@ footer.site-footer .fine {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--red);
-  background: #FDEDEE;
+  background: #E8F0FC;
   padding: 4px 10px;
   border-radius: 3px;
   display: inline-block;
   margin-bottom: 16px;
 }
-.pillar-hero.dlp .inst-type { color: var(--teal); background: #E9F7ED; }
+.pillar-hero.dlp .inst-type { color: #8A6D00; background: #FFF6DF; }
 .pillar-hero h1 {
   font-family: var(--serif);
   font-weight: 500;
@@ -605,7 +606,7 @@ footer.site-footer .fine {
   padding: 4px 10px;
   border-radius: 3px;
 }
-.post-hero.cat-university .cat-tag { background: var(--teal); }
+.post-hero.cat-university .cat-tag { background: var(--yellow); color: var(--navy); }
 .post-hero.cat-program .cat-tag { background: var(--navy); }
 .post-hero .post-date-meta {
   font-family: var(--mono);
@@ -665,7 +666,7 @@ footer.site-footer .fine {
   font-family: var(--mono);
   font-size: 0.8rem;
   color: var(--teal);
-  background: #E7F0EC;
+  background: #E8F0FC;
   padding: 4px 10px;
   border-radius: 3px;
   display: inline-block;
