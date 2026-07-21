@@ -1,7 +1,5 @@
 # jaro.in — Site Scaffold
 
-<!-- deploy-trigger: forcing a fresh push to re-fire Vercel's webhook -->
-
 Static HTML site, same deployment model as your other satellite domains
 (mbahub.co.in etc.) — no build step, just static files + `vercel.json`.
 
@@ -13,6 +11,12 @@ Static HTML site, same deployment model as your other satellite domains
 - `assets/css/style.css` — shared design system (single stylesheet, no build tool)
 - `robots.txt`, `sitemap.xml` — pre-wired for jaro.in
 - `vercel.json` — clean URLs (no `.html` in links), basic security headers
+
+## Important discovery
+- Jaro already runs a live subdomain **`amritaonlinemba.jaro.in`** for Amrita's MBA program.
+  This means jaro.in's DNS is NOT a blank slate — some subdomain records may already exist.
+  **Before pointing the root `jaro.in` A/CNAME record at Vercel, check your DNS provider
+  for existing records** so you don't accidentally break that live subdomain.
 
 ## What you'll need to customize
 - Confirm the real, current list of partner institutes in the trust strip
